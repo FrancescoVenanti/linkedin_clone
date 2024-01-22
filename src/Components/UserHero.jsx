@@ -66,7 +66,7 @@ const UserHero = () => {
 							<Carousel.Item>
 								<Row>
 									<Col xs={6}>
-										<div className="border bg-primary-subtle rounded p-2">
+										<div className="border bg-light rounded p-2">
 											<h5>Which industry do you work in?</h5>
 											<p>
 												Members who add an industry receive up to 2.5 times as many profile
@@ -76,31 +76,7 @@ const UserHero = () => {
 										</div>
 									</Col>
 									<Col xs={6}>
-										<div className="border bg-primary-subtle rounded p-2">
-											<h5>Which industry do you work in?</h5>
-											<p>
-												Members who add an industry receive up to 2.5 times as many profile
-												views.
-											</p>
-											<Button variant="outline-secondary">Add industry</Button>
-										</div>
-									</Col>
-								</Row>
-							</Carousel.Item>
-							<Carousel.Item>
-								<Row>
-									<Col xs={6}>
-										<div className="border bg-primary-subtle rounded p-2">
-											<h5>Which industry do you work in?</h5>
-											<p>
-												Members who add an industry receive up to 2.5 times as many profile
-												views.
-											</p>
-											<Button variant="outline-secondary">Add industry</Button>
-										</div>
-									</Col>
-									<Col xs={6}>
-										<div className="border bg-primary-subtle rounded p-2">
+										<div className="border bg-light rounded p-2">
 											<h5>Which industry do you work in?</h5>
 											<p>
 												Members who add an industry receive up to 2.5 times as many profile
@@ -114,7 +90,7 @@ const UserHero = () => {
 							<Carousel.Item>
 								<Row>
 									<Col xs={6}>
-										<div className="border bg-primary-subtle rounded p-2">
+										<div className="border bg-light rounded p-2">
 											<h5>Which industry do you work in?</h5>
 											<p>
 												Members who add an industry receive up to 2.5 times as many profile
@@ -124,7 +100,31 @@ const UserHero = () => {
 										</div>
 									</Col>
 									<Col xs={6}>
-										<div className="border bg-primary-subtle rounded p-2">
+										<div className="border bg-light rounded p-2">
+											<h5>Which industry do you work in?</h5>
+											<p>
+												Members who add an industry receive up to 2.5 times as many profile
+												views.
+											</p>
+											<Button variant="outline-secondary">Add industry</Button>
+										</div>
+									</Col>
+								</Row>
+							</Carousel.Item>
+							<Carousel.Item>
+								<Row>
+									<Col xs={6}>
+										<div className="border bg-light rounded p-2">
+											<h5>Which industry do you work in?</h5>
+											<p>
+												Members who add an industry receive up to 2.5 times as many profile
+												views.
+											</p>
+											<Button variant="outline-secondary">Add industry</Button>
+										</div>
+									</Col>
+									<Col xs={6}>
+										<div className="border bg-light rounded p-2">
 											<h5>Which industry do you work in?</h5>
 											<p>
 												Members who add an industry receive up to 2.5 times as many profile

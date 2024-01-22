@@ -11,7 +11,7 @@ function App() {
 	return (
 		<div className="bg-secondary">
 			<NavBar />
-			<Container>
+			<Container className="px-0">
 				<Row>
 					<Col xs={12} md={7} lg={9}>
 						<UserHero />
