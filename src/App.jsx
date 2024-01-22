@@ -6,6 +6,7 @@ import UserHero from "./Components/UserHero";
 import { Row, Col, Container } from "react-bootstrap";
 import EditProfile from "./Components/EditProfile";
 import UserInfoCards from "./Components/UserInfoCards";
+import Footer from "./Components/Footer";
 
 function App() {
 	return (
@@ -26,6 +27,7 @@ function App() {
 						<EditProfile />
 					</Col>
 				</Row>
+				<Footer />
 			</Container>
 		</div>
 	);
