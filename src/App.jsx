@@ -6,21 +6,21 @@ import UserHero from "./Components/UserHero";
 import { Row, Col, Container } from "react-bootstrap";
 
 function App() {
-    return (
-        <div className="bg-secondary">
-            <NavBar />
-            <Container>
-                <Row>
-                    <Col xs={9}>
-                        <UserHero />
-                    </Col>
-                    <Col xs={3}>
-                        <p>prova</p>
-                    </Col>
-                </Row>
-            </Container>
-        </div>
-    );
+	return (
+		<div className="bg-secondary">
+			<NavBar />
+			<Container>
+				<Row>
+					<Col xs={9}>
+						<UserHero />
+					</Col>
+					<Col xs={3}>
+						<p>prova</p>
+					</Col>
+				</Row>
+			</Container>
+		</div>
+	);
 }
 
 export default App;
