@@ -12,7 +12,7 @@ import {
 
 const NavBar = () => {
 	return (
-		<Navbar className="bg-white ">
+		<Navbar className="bg-white sticky-top">
 			<Container className="justify-content-start align-items-center p-0">
 				<Navbar.Brand href="#home">
 					<Linkedin className="text-primary fs-2" />
