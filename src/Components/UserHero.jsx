@@ -61,52 +61,30 @@ const UserHero = () => {
 						</div>
 					</Col>
 					<Col xs={12}>
-						{/* toDo arrows position */}
+						{/* toDo arrows position - carosello mobile*/}
 						<Carousel className="mt-3 position-relative" variant="dark" indicators={false} interval={null}>
 							<Carousel.Item>
 								<Row>
 									<Col xs={6}>
-										<div className="border bg-light rounded p-2">
-											<h5>Which industry do you work in?</h5>
-											<p>
-												Members who add an industry receive up to 2.5 times as many profile
-												views.
+										<div className="border bg-white rounded p-2">
+											<p className="fw-bold">
+												Show recruiters you're open to work -
+												<span className="fw-normal"> You control who sees this.</span>
 											</p>
-											<Button variant="outline-secondary">Add industry</Button>
+											<a href="" className="text-primary text-decoration-none fw-bold">
+												Get started
+											</a>
 										</div>
 									</Col>
 									<Col xs={6}>
-										<div className="border bg-light rounded p-2">
-											<h5>Which industry do you work in?</h5>
-											<p>
-												Members who add an industry receive up to 2.5 times as many profile
-												views.
+										<div className="border bg-white rounded p-2">
+											<p className="fw-bold">
+												Show recruiters you're open to work -
+												<span className="fw-normal"> You control who sees this.</span>
 											</p>
-											<Button variant="outline-secondary">Add industry</Button>
-										</div>
-									</Col>
-								</Row>
-							</Carousel.Item>
-							<Carousel.Item>
-								<Row>
-									<Col xs={6}>
-										<div className="border bg-light rounded p-2">
-											<h5>Which industry do you work in?</h5>
-											<p>
-												Members who add an industry receive up to 2.5 times as many profile
-												views.
-											</p>
-											<Button variant="outline-secondary">Add industry</Button>
-										</div>
-									</Col>
-									<Col xs={6}>
-										<div className="border bg-light rounded p-2">
-											<h5>Which industry do you work in?</h5>
-											<p>
-												Members who add an industry receive up to 2.5 times as many profile
-												views.
-											</p>
-											<Button variant="outline-secondary">Add industry</Button>
+											<a href="" className="text-primary text-decoration-none fw-bold">
+												Get started
+											</a>
 										</div>
 									</Col>
 								</Row>
@@ -114,23 +92,51 @@ const UserHero = () => {
 							<Carousel.Item>
 								<Row>
 									<Col xs={6}>
-										<div className="border bg-light rounded p-2">
-											<h5>Which industry do you work in?</h5>
-											<p>
-												Members who add an industry receive up to 2.5 times as many profile
-												views.
+										<div className="border bg-white rounded p-2">
+											<p className="fw-bold">
+												Show recruiters you're open to work -
+												<span className="fw-normal"> You control who sees this.</span>
 											</p>
-											<Button variant="outline-secondary">Add industry</Button>
+											<a href="" className="text-primary text-decoration-none fw-bold">
+												Get started
+											</a>
 										</div>
 									</Col>
 									<Col xs={6}>
-										<div className="border bg-light rounded p-2">
-											<h5>Which industry do you work in?</h5>
-											<p>
-												Members who add an industry receive up to 2.5 times as many profile
-												views.
+										<div className="border bg-white rounded p-2">
+											<p className="fw-bold">
+												Show recruiters you're open to work -
+												<span className="fw-normal"> You control who sees this.</span>
 											</p>
-											<Button variant="outline-secondary">Add industry</Button>
+											<a href="" className="text-primary text-decoration-none fw-bold">
+												Get started
+											</a>
+										</div>
+									</Col>
+								</Row>
+							</Carousel.Item>
+							<Carousel.Item>
+								<Row>
+									<Col xs={6}>
+										<div className="border bg-white rounded p-2">
+											<p className="fw-bold">
+												Show recruiters you're open to work -
+												<span className="fw-normal"> You control who sees this.</span>
+											</p>
+											<a href="" className="text-primary text-decoration-none fw-bold">
+												Get started
+											</a>
+										</div>
+									</Col>
+									<Col xs={6}>
+										<div className="border bg-white rounded p-2">
+											<p className="fw-bold">
+												Show recruiters you're open to work -
+												<span className="fw-normal"> You control who sees this.</span>
+											</p>
+											<a href="" className="text-primary text-decoration-none fw-bold">
+												Get started
+											</a>
 										</div>
 									</Col>
 								</Row>
