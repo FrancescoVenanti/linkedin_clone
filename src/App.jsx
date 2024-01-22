@@ -4,6 +4,7 @@ import "./App.css";
 import NavBar from "./Components/NavBar";
 import UserHero from "./Components/UserHero";
 import { Row, Col, Container } from "react-bootstrap";
+import EditProfile from "./Components/EditProfile";
 
 function App() {
 	return (
@@ -11,11 +12,11 @@ function App() {
 			<NavBar />
 			<Container>
 				<Row>
-					<Col xs={9}>
+					<Col xs={12} md={7} lg={9}>
 						<UserHero />
 					</Col>
-					<Col xs={3}>
-						<p>prova</p>
+					<Col className="d-none d-md-block" xs={5} lg={3}>
+						<EditProfile />
 					</Col>
 				</Row>
 			</Container>
