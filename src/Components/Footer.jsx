@@ -35,21 +35,21 @@ const Footer = () => {
                     <div>
                         <Row>
                             <Col xs={2} className="pe-0">
-                                <QuestionCircleFill />
+                                <QuestionCircleFill className="fs-5"/>
                             </Col>
                             <Col xs={10} className="ps-0">
                                 <p className="mb-0 footer-fs fw-bold">Questions?</p>
                                 <p className="footer-fs" >Visit our Help Center.</p>
                             </Col>
                             <Col xs={2} className="pe-0">
-                                <GearFill />
+                                <GearFill className="fs-5"/>
                             </Col>
                             <Col xs={10} className="ps-0">
                                 <p className="mb-0 footer-fs fw-bold">Manage your account and privacy</p>
                                 <p className="footer-fs" >Go to your Settings.</p>
                             </Col>
                             <Col xs={2} className="pe-0">
-                                <ShieldShaded />
+                                <ShieldShaded className="fs-5"/>
                             </Col>
                             <Col xs={10} className="ps-0">
                                 <p className="mb-0 footer-fs fw-bold">Reccomendation transparency</p>
