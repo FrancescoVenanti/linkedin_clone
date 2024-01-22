@@ -1,10 +1,11 @@
 import { token } from "../../token";
 
 export const GET_USERS = "GET_USERS";
+export const GET_ME = "GET_ME";
 
 export const endpoint = "https://striveschool-api.herokuapp.com/api/profile/";
 
-export const getUsersAction = () => {
+export const getUsersAction = (type) => {
     return async (dispatch) => {
         try {
             const resp = await fetch(endpoint, {
@@ -16,7 +17,7 @@ export const getUsersAction = () => {
                 let result = await resp.json();
                 console.log(result);
                 dispatch({
-                    type: GET_USERS,
+                    type: type,
                     payload: result,
                 });
             } else {

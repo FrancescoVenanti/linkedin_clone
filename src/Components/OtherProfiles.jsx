@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getUsersAction } from "../Redux/actions";
+import { GET_USERS, getUsersAction } from "../Redux/actions";
 import { Row, Col, Button, Container } from "react-bootstrap";
 import { PersonFill } from "react-bootstrap-icons/dist";
 
@@ -10,7 +10,7 @@ const OtherProfiles = (props) => {
     const users = useSelector((state) => state.users.data);
 
     useEffect(() => {
-        dispatch(getUsersAction());
+        dispatch(getUsersAction(GET_USERS));
     }, []);
 
     return (
