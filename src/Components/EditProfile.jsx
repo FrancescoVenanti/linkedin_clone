@@ -3,7 +3,7 @@ import { PencilFill } from "react-bootstrap-icons";
 
 const EditProfile = () => {
 	return (
-		<Container className="bg-white mt-4 rounded-3 overflow-hidden">
+		<Container className="bg-white mt-4 rounded-3 overflow-hidden border border-2">
 			<Row>
 				<Col xs={12} className="border border-bottom">
 					<div className="d-flex justify-content-between py-3 align-items-start">

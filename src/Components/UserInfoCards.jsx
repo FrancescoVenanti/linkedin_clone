@@ -3,7 +3,7 @@ import { EyeFill, ArrowRight, Pen, PenFill, Plus } from "react-bootstrap-icons";
 
 const UserInfoCards = (props) => {
 	return (
-		<div className="bg-white rounded-3 overflow-hidden mt-3 pt-3 px-4">
+		<div className="bg-white rounded-3 overflow-hidden mt-3 pt-3 px-4 border border-2">
 			<div className="d-flex justify-content-between">
 				<h4 className="mb-0">{props.title}</h4>
 				{props.side === "button" && (

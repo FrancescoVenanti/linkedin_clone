@@ -3,7 +3,7 @@ import { PencilFill } from "react-bootstrap-icons";
 
 const UserHero = () => {
 	return (
-		<Container className="bg-white rounded-3 mt-4 overflow-hidden">
+		<Container className="bg-white rounded-3 mt-4 overflow-hidden border border-2">
 			<Row className="pb-3">
 				<Col className="col-12 position-relative" id="user-backgroud">
 					<div style={{ height: "201px" }}>

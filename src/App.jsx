@@ -13,10 +13,10 @@ import UserInfoPage from "./Components/UserInfoPage";
 
 function App() {
 	return (
-		<div className="bg-secondary">
+		<div className="bg-linkedin">
 			<NavBar />
 			<Container className="px-0">
-				<Row>
+				<Row className="mb-5">
 					<Col xs={12} md={7} lg={9}>
 						<UserHero />
 						<UserInfoPage />
