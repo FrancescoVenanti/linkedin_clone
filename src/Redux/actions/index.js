@@ -28,3 +28,27 @@ export const getUsersAction = (type) => {
         }
     };
 };
+
+export const getMeAction = (query) => {
+    return async (dispatch) => {
+        try {
+            const resp = await fetch(endpoint + query, {
+                headers: {
+                    Authorization: `bearer ${token}`,
+                },
+            });
+            if (resp.ok) {
+                let result = await resp.json();
+                console.log(result);
+                dispatch({
+                    type: GET_ME,
+                    payload: result,
+                });
+            } else {
+                throw new Error("failed to fetch");
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
+};

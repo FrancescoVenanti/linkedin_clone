@@ -1,33 +1,16 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Button, Carousel } from "react-bootstrap";
 import { PencilFill } from "react-bootstrap-icons";
-import { endpoint } from "../Redux/actions";
+import { endpoint, getMeAction } from "../Redux/actions";
 import { token } from "../token";
+import { useDispatch, useSelector } from "react-redux";
 
 const UserHero = () => {
-    const [me, setMe] = useState(null);
-
-    const getMe = async () => {
-        try {
-            let resp = await fetch(`${endpoint}me`, {
-                headers: {
-                    Authorization: `bearer ${token}`,
-                },
-            });
-            if (resp.ok) {
-                let result = await resp.json();
-                console.log("ME", result);
-                setMe(result);
-            } else {
-                throw new Error("Failed to fetch");
-            }
-        } catch (err) {
-            console.log(err);
-        }
-    };
+    const dispatch = useDispatch();
+    const me = useSelector((state) => state.me.meData);
 
     useEffect(() => {
-        getMe();
+        dispatch(getMeAction("me"));
     }, []);
 
     return (
