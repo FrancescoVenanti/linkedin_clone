@@ -4,8 +4,8 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
 function ModalComponent(props) {
-	const startYear = 1960;
-	const endYear = 2023;
+	const startYear = 2024;
+	const endYear = 1924;
 	const years = Array.from({ length: endYear - startYear + 1 }, (_, index) => startYear + index);
 
 	const [stillWorking, setStillWorking] = useState(true);
