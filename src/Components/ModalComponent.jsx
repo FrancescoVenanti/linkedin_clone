@@ -12,16 +12,17 @@ function ModalComponent(props) {
 	const endYear = 2023;
 	const years = Array.from({ length: endYear - startYear + 1 }, (_, index) => startYear + index);
 	const [startingTime, setStartingTime] = useState({ year: "", month: "" });
+	const [endingTime, setEndingTime] = useState({ year: "", month: "" });
 
 	const [stillWorking, setStillWorking] = useState(true);
 
 	const [newExperience, setNewExperience] = useState({
-		role: "Full Stack Web Developer",
-		company: "FizzBuzz",
-		startDate: "2022-06-16",
-		endDate: "2023-06-16",
-		description: "Implementing new features",
-		area: "Milan",
+		role: "",
+		company: "",
+		startDate: "",
+		endDate: "",
+		description: "",
+		area: "",
 	});
 
 	const postNewExperience = async () => {
@@ -31,6 +32,7 @@ function ModalComponent(props) {
 				headers: {
 					Authorization: `Bearer ${token}`,
 					"Content-Type": "application/json",
+					mode: "no-cors",
 				},
 				body: JSON.stringify(newExperience),
 			});
@@ -48,15 +50,27 @@ function ModalComponent(props) {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		postNewExperience();
+		props.handleClose();
 	};
 	useEffect(() => {
 		const startingTimeString = startingTime.year.toString() + "-" + startingTime.month.toString() + "-01";
-		console.log(newExperience);
+
 		setNewExperience({
 			...newExperience,
 			startDate: startingTimeString,
 		});
 	}, [startingTime]);
+	useEffect(() => {
+		const endingTimeString = endingTime.year.toString() + "-" + endingTime.month.toString() + "-01";
+		setNewExperience({
+			...newExperience,
+			endDate: endingTimeString,
+		});
+	}, [endingTime]);
+
+	useEffect(() => {
+		console.log(newExperience);
+	}, [newExperience]);
 
 	return (
 		<Modal show={props.show} onHide={props.handleClose}>
@@ -181,7 +195,12 @@ function ModalComponent(props) {
 							<Form.Label>Ending date</Form.Label>
 							<Row>
 								<Col xs={12} md={6}>
-									<Form.Select aria-label="month">
+									<Form.Select
+										aria-label="month"
+										onChange={(e) => {
+											setEndingTime({ ...endingTime, month: e.target.value });
+										}}
+									>
 										<option>Month</option>
 										<option value="01">January</option>
 										<option value="02">February</option>
@@ -198,7 +217,12 @@ function ModalComponent(props) {
 									</Form.Select>
 								</Col>
 								<Col xs={12} md={6}>
-									<Form.Select aria-label="year">
+									<Form.Select
+										aria-label="year"
+										onChange={(e) => {
+											setEndingTime({ ...endingTime, year: e.target.value });
+										}}
+									>
 										<option>Year</option>
 										{years.map((year, index) => (
 											<option key={index} value={year}>
@@ -216,8 +240,8 @@ function ModalComponent(props) {
 				<Button variant="secondary" onClick={() => props.handleClose()}>
 					Close
 				</Button>
-				<Button variant="primary" onClick={() => props.handleClose()}>
-					Save Changes
+				<Button type="submit" variant="primary" onClick={handleSubmit()}>
+					Post experience
 				</Button>
 			</Modal.Footer>
 		</Modal>

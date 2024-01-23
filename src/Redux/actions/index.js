@@ -36,6 +36,7 @@ export const getMeAction = (query) => {
 			const resp = await fetch(endpoint + query, {
 				headers: {
 					Authorization: `bearer ${token}`,
+					mode: "no-cors",
 				},
 			});
 			if (resp.ok) {
