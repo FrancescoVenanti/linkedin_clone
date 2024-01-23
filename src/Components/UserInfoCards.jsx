@@ -8,6 +8,8 @@ const UserInfoCards = (props) => {
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 
+	const modifica = true;
+
 	return (
 		<div className="bg-white rounded-3 overflow-hidden mt-3 pt-3 px-4 border border-2">
 			<div className="d-flex justify-content-between">
