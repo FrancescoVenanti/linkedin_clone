@@ -8,9 +8,12 @@ import { token } from "../token";
 function ModalComponent(props) {
     console.log(props);
     const user = useSelector((state) => state.me.meData);
-    const experienceEndpoint = `https://striveschool-api.herokuapp.com/api/profile/${user._id}/experiences/${
-        props.experience && props.experience._id
-    }`;
+    /* const experienceEndpoint = `https://striveschool-api.herokuapp.com/api/profile/${user._id}/experiences/${
+        props.experience ? props.experience._id : 
+    }`; */
+    const experienceEndpoint = props.experience
+        ? `https://striveschool-api.herokuapp.com/api/profile/${user._id}/experiences/${props.experience._id}`
+        : `https://striveschool-api.herokuapp.com/api/profile/${user._id}/experiences/`;
     const startYear = 1960;
     const endYear = 2023;
     const years = Array.from({ length: endYear - startYear + 1 }, (_, index) => startYear + index);
