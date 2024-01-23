@@ -1,7 +1,15 @@
 import { Button } from "react-bootstrap";
 import { EyeFill, ArrowRight, Pen, PenFill, Plus } from "react-bootstrap-icons";
+import { useState } from "react";
+import ModalComponent from "./ModalComponent";
 
 const UserInfoCards = (props) => {
+	const [show, setShow] = useState(false);
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
+
+	const modifica = true;
+
 	return (
 		<div className="bg-white rounded-3 overflow-hidden mt-3 pt-3 px-4 border border-2">
 			<div className="d-flex justify-content-between">
@@ -16,9 +24,10 @@ const UserInfoCards = (props) => {
 				)}
 				{props.side === "plus" && (
 					<div>
-						<Button className="me-3 rounded-pill" variant="none">
+						<Button className="me-3 rounded-pill" variant="none" onClick={handleShow}>
 							<Plus width={32} height={32} />
 						</Button>
+						{show && <ModalComponent show={show} handleClose={handleClose} />}
 						<PenFill width={24} height={24} />
 					</div>
 				)}
