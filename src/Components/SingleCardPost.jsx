@@ -12,11 +12,12 @@ import {
 import { token } from "../token";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getPostsAction } from "../Redux/actions";
+import { DELETE_POST, deleteAndPutAction, getPostsAction } from "../Redux/actions";
 
 const SingleCardPost = () => {
     const posts = useSelector((state) => state.posts.data);
     const actualUser = useSelector((state) => state.me.meData);
+    const [show, setShow] = useState(false);
     console.log(actualUser.username);
     const dispatch = useDispatch();
 
@@ -48,10 +49,16 @@ const SingleCardPost = () => {
                                     {post.username === actualUser.username ? (
                                         <div className="d-flex align-items-center">
                                             <Button className="me-1" variant="warning">
-                                                <Pencil />
+                                                <Pencil onClick={() => setShow(true)} />
                                             </Button>{" "}
                                             <Button variant="danger">
-                                                <Trash2Fill className="text-black" />
+                                                <Trash2Fill
+                                                    className="text-black"
+                                                    onClick={async () => {
+                                                        await dispatch(deleteAndPutAction(DELETE_POST, post._id));
+                                                        dispatch(getPostsAction());
+                                                    }}
+                                                />
                                             </Button>
                                         </div>
                                     ) : (
