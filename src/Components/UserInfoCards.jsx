@@ -27,7 +27,13 @@ const UserInfoCards = (props) => {
 						<Button className="me-3 rounded-pill" variant="none" onClick={handleShow}>
 							<Plus width={32} height={32} />
 						</Button>
-						{show && <ModalComponent show={show} handleClose={handleClose} />}
+						{show && (
+							<ModalComponent
+								show={show}
+								handleClose={handleClose}
+								handleSetExperience={props.handleSetExperience}
+							/>
+						)}
 						<PenFill width={24} height={24} />
 					</div>
 				)}

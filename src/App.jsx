@@ -10,6 +10,7 @@ import UserInfoPage from "./Components/UserInfoPage";
 import OtherProfiles from "./Components/OtherProfiles";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProfilePage from "./Components/ProfilePage";
+import Home from "./Components/Home";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                 <NavBar />
                 <Container className="px-0">
                     <Routes>
+                        <Route path={"/"} element={<Home />} />
                         <Route path={"/:me"} element={<ProfilePage />} />
                     </Routes>
 
