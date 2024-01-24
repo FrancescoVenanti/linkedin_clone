@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { token } from "../token";
 
 function ModalComponent(props) {
+
 	console.log(props);
 	const user = useSelector((state) => state.me.meData);
 	/* const experienceEndpoint = `https://striveschool-api.herokuapp.com/api/profile/${user._id}/experiences/${
@@ -16,6 +17,7 @@ function ModalComponent(props) {
 		: `https://striveschool-api.herokuapp.com/api/profile/${user._id}/experiences/`;
 	const startYear = 1960;
 	const endYear = 2023;
+
 	const years = Array.from({ length: endYear - startYear + 1 }, (_, index) => startYear + index);
 	const [startingTime, setStartingTime] = useState({ year: "", month: "" });
 	const [endingTime, setEndingTime] = useState({ year: "", month: "" });
