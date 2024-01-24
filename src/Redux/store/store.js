@@ -3,21 +3,23 @@ import userReducer from "../reducers/userReducer";
 import meReducer from "../reducers/meReducer";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import postsReducer from "../reducers/postsReducer";
 
 const rootReducer = combineReducers({
-	users: userReducer,
-	me: meReducer,
+    users: userReducer,
+    me: meReducer,
+    posts: postsReducer,
 });
 
 const persistConfig = {
-	key: "root",
-	storage,
+    key: "root",
+    storage,
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 let store = configureStore({
-	reducer: persistedReducer,
+    reducer: persistedReducer,
 });
 let persistor = persistStore(store);
 
