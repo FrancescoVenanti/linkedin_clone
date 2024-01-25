@@ -1,7 +1,7 @@
 import { Row, Col } from "react-bootstrap";
 import HomeLeft from "./HomeLeft";
 import HomeMid from "./HomeMid";
-import HomeRight from "../HomeRight";
+import HomeRight from "./HomeRight";
 
 const Home = () => {
 	return (
