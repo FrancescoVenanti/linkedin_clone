@@ -5,12 +5,14 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import postsReducer from "../reducers/postsReducer";
 import jobsReducer from "../reducers/getJobsReducer";
+import setFilterReducer from "../reducers/setFilterReducer";
 
 const rootReducer = combineReducers({
     users: userReducer,
     me: meReducer,
     posts: postsReducer,
     jobs: jobsReducer,
+    filter: setFilterReducer,
 });
 
 const persistConfig = {

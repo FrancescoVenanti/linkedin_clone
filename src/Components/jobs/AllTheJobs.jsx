@@ -3,11 +3,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { getJobsAction } from "../../Redux/actions";
 import SingleJob from "./SingleJob";
 
-const AllTheJobs = () => {
+const AllTheJobs = (props) => {
+    const jobsEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?limit=100";
     const jobs = useSelector((state) => state.jobs.data);
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(getJobsAction());
+        if (!props.search) {
+            dispatch(getJobsAction(jobsEndpoint));
+        }
     }, []);
     return (
         <>

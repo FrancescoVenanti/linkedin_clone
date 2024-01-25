@@ -6,10 +6,25 @@ export const GET_ME = "GET_ME";
 export const PUT_IMG = "PUT_IMG";
 export const GET_POSTS = "GET_POSTS";
 export const GET_JOBS = "GET_JOBS";
+export const SET_FILTER_COMPANY = "SET_FILTER_COMPANY";
+export const SET_FILTER_CATEGORY = "SET_FILTER_CATEGORY";
+export const CLEAR_FILTER_STATE = "CLEAR_FILTER_STATE";
 
 export const endpoint = "https://striveschool-api.herokuapp.com/api/profile/";
 export const postsEndpoint = "https://striveschool-api.herokuapp.com/api/posts/";
-export const jobsEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?limit=100";
+/* export const jobsEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?limit=100"; */
+
+export const setFilterCategory = () => ({
+    type: SET_FILTER_CATEGORY,
+});
+
+export const setFilterCompany = () => ({
+    type: SET_FILTER_COMPANY,
+});
+
+export const clearFilterState = () => ({
+    type: CLEAR_FILTER_STATE,
+});
 
 export const getUsersAction = (type) => {
     return async (dispatch) => {
@@ -86,7 +101,7 @@ export const getPostsAction = () => {
     };
 };
 
-export const getJobsAction = () => {
+export const getJobsAction = (jobsEndpoint) => {
     return async (dispatch) => {
         try {
             let resp = await fetch(jobsEndpoint, {
