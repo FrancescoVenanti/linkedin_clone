@@ -13,6 +13,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { DELETE_POST, deleteAndPutAction, getPostsAction } from "../Redux/actions";
 import CreatePostModal from "./CreatePostModal";
+import { token } from "../token";
 
 const SingleCardPost = () => {
 	const posts = useSelector((state) => state.posts.data);
@@ -24,6 +25,28 @@ const SingleCardPost = () => {
 	useEffect(() => {
 		dispatch(getPostsAction());
 	}, []);
+
+	const postsEndpoint = "https://striveschool-api.herokuapp.com/api/posts/";
+
+	const deletePost = async (postId) => {
+		try {
+			let resp = await fetch(postsEndpoint + postId, {
+				method: "DELETE",
+				headers: {
+					Authorization: `bearer ${token}`,
+					"Content-Type": "application/json",
+				},
+			});
+			if (resp.ok) {
+				console.log("Post eliminato");
+				dispatch(getPostsAction());
+			} else {
+				console.log("Failed to delete");
+			}
+		} catch (err) {
+			console.log(err);
+		}
+	};
 
 	return (
 		<>
@@ -53,20 +76,26 @@ const SingleCardPost = () => {
 												<Pencil onClick={() => setShow(true)} />
 											</Button>
 											{show && (
-												<CreatePostModal
-													show={show}
-													setShow={setShow}
-													text={post.text}
-													post={post}
-												/>
+												<>
+													console.log(post)
+													<CreatePostModal
+														show={show}
+														setShow={setShow}
+														text={post.text}
+														post={post}
+													/>
+												</>
 											)}
 											<Button variant="danger">
 												<Trash2Fill
 													className="text-black"
-													onClick={async () => {
+													onClick={() => {
+														deletePost(post._id);
+													}}
+													/* onClick={async () => {
 														await dispatch(deleteAndPutAction(DELETE_POST, post._id));
 														dispatch(getPostsAction());
-													}}
+													}} */
 												/>
 											</Button>
 										</div>
