@@ -45,7 +45,7 @@ const CreatePostModal = (props) => {
 		try {
 			const formData = new FormData();
 
-			formData.append(postImg);
+			formData.append("post", postImg);
 
 			const resp = await fetch(`https://striveschool-api.herokuapp.com/api/posts/${props.post._id}`, {
 				method: "POST",
