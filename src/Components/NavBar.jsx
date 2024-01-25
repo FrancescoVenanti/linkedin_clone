@@ -46,10 +46,14 @@ const NavBar = () => {
                         <PeopleFill className="fs-4" />
                         <span className="d-none d-lg-inline navbar-text-small">My Network</span>
                     </Nav.Link>
-                    <Nav.Link className="d-flex flex-column align-items-center me-3" href="#home">
+                    <NavLink
+                        to={"/jobs"}
+                        className="d-flex flex-column align-items-center me-3 text-decoration-none text-black"
+                        href="#home"
+                    >
                         <BriefcaseFill className="fs-4" />
                         <span className="d-none d-lg-inline navbar-text-small">Jobs</span>
-                    </Nav.Link>
+                    </NavLink>
                     <Nav.Link className="d-flex flex-column align-items-center me-3" href="#home">
                         <ChatDotsFill className="fs-4" />
                         <span className="d-none d-lg-inline navbar-text-small">Messaging</span>
