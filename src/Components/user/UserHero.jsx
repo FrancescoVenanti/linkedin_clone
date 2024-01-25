@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Button, Carousel } from "react-bootstrap";
 import { PencilFill } from "react-bootstrap-icons";
-import { endpoint, getMeAction } from "../Redux/actions";
-import { token } from "../token";
+import { endpoint, getMeAction } from "../../Redux/actions";
+import { token } from "../../token";
 import { useDispatch, useSelector } from "react-redux";
-import ModalImage from "./ModalImage";
+import ModalImage from "../ModalImage";
 
 const UserHero = () => {
 	const dispatch = useDispatch();

@@ -3,10 +3,9 @@ import { Col, Form, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useSelector } from "react-redux";
-import { token } from "../token";
+import { token } from "../../token";
 
 function ModalComponent(props) {
-
 	console.log(props);
 	const user = useSelector((state) => state.me.meData);
 	/* const experienceEndpoint = `https://striveschool-api.herokuapp.com/api/profile/${user._id}/experiences/${
