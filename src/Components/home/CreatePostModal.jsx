@@ -11,6 +11,10 @@ const CreatePostModal = (props) => {
 	}
 	const actualUser = useSelector((state) => state.me.meData);
 	const [createdPost, setCreatedPost] = useState(props.post ? props.post : "");
+	const [postImg, setPostImg] = useState(null);
+	useEffect(() => {
+		console.log(postImg);
+	}, [postImg]);
 
 	const dispatch = useDispatch();
 
@@ -37,6 +41,30 @@ const CreatePostModal = (props) => {
 		}
 	};
 
+	const postImgFetch = async () => {
+		try {
+			const formData = new FormData();
+
+			formData.append(postImg);
+
+			const resp = await fetch(`https://striveschool-api.herokuapp.com/api/posts/${props.post._id}`, {
+				method: "POST",
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+				body: formData,
+			});
+
+			if (resp.ok) {
+				console.log("Modifica Effettuata correttamente");
+			} else {
+				throw new Error(`Failed to fetch. Status: ${resp.status}`);
+			}
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
 	const putPost = async () => {
 		try {
 			let resp = await fetch(postsEndpoint + props.post._id, {
@@ -48,6 +76,9 @@ const CreatePostModal = (props) => {
 				body: JSON.stringify(createdPost),
 			});
 			if (resp.ok) {
+				if (postImg) {
+					postImgFetch();
+				}
 				console.log("Post Effettuato");
 				dispatch(getPostsAction());
 			} else {
@@ -68,7 +99,13 @@ const CreatePostModal = (props) => {
 			<Modal.Header closeButton>
 				{actualUser && (
 					<div className="d-flex align-items-center">
-						<img width={48} className="rounded-circle me-2" alt="user" src={actualUser.image} />
+						<img
+							width={48}
+							height={48}
+							className="rounded-circle me-2 object-fit-cover"
+							alt="user"
+							src={actualUser.image}
+						/>
 						<div>
 							<p className="fw-bold mb-0">
 								{actualUser.name} {actualUser.surname}
@@ -92,6 +129,14 @@ const CreatePostModal = (props) => {
 								})
 							}
 						/>
+						<Form.Label>Choose a photo</Form.Label>
+						<Form.Control
+							className="mt-3"
+							type="file"
+							onChange={(e) => {
+								setPostImg(e.target.files[0]);
+							}}
+						></Form.Control>
 					</Form.Group>
 				</Form>
 			</Modal.Body>

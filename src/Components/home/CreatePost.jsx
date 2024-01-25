@@ -2,17 +2,20 @@ import { Row, Col, Button } from "react-bootstrap";
 import { Calendar3, Image, JournalAlbum } from "react-bootstrap-icons";
 import { useState } from "react";
 import CreatePostModal from "./CreatePostModal";
+import { useSelector } from "react-redux";
 
 const CreatePost = () => {
 	const [show, setShow] = useState(false);
+	const actualUser = useSelector((state) => state.me.meData);
 
 	return (
 		<div className="bg-white rounded-3 border border-2 p-2">
 			<div className="d-flex align-items-center ">
 				<img
-					src="https://media.istockphoto.com/id/1451587807/it/vettoriale/vettore-dellicona-del-profilo-utente-avatar-o-icona-della-persona-immagine-del-profilo.jpg?s=612x612&w=0&k=20&c=Sxv9sa3SzosipjGALM8P6dvJ7dQA4AWjtAsD2Aczdwc="
+					src={actualUser.image}
 					width={52}
-					className="rounded-circle"
+					height={52}
+					className="rounded-circle object-fit-cover me-2"
 					alt="user"
 				/>
 				<div className="flex-grow-1">
