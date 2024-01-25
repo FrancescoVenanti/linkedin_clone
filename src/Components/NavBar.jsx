@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Container, Navbar, Nav, NavDropdown, Form, Button } from "react-bootstrap";
 import {
     Linkedin,
@@ -11,17 +11,36 @@ import {
     Grid3x3GapFill,
 } from "react-bootstrap-icons";
 import { NavLink, useNavigate } from "react-router-dom";
-import { getMeAction } from "../Redux/actions";
+import { clearFilterState, getJobsAction, getMeAction } from "../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
+import setFilterReducer from "../Redux/reducers/setFilterReducer";
 
 const NavBar = () => {
+    const [query, setQuery] = useState("");
+    const filter = useSelector((state) => state.filter.string);
+    const jobsEndpoint = `https://strive-benchmark.herokuapp.com/api/jobs?${filter}=${query}&limit=100`;
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const userProfile = useSelector((state) => state.me.meData);
 
     useEffect(() => {
         dispatch(getMeAction("me"));
+        dispatch(clearFilterState());
     }, []);
+
+    useEffect(() => {
+        console.log(filter);
+    }, [filter]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        navigate("/search");
+        dispatch(getJobsAction(jobsEndpoint));
+    };
+
+    useEffect(() => {
+        dispatch(getJobsAction(jobsEndpoint));
+    }, [filter]);
 
     return (
         <Navbar className="bg-white sticky-top">
@@ -33,23 +52,37 @@ const NavBar = () => {
                 </Navbar.Brand>
 
                 {/* to do search icon */}
-                <Form>
-                    <Form.Control type="text" placeholder="Search" className="d-none d-lg-block mr-sm-2" />
+                <Form onSubmit={handleSubmit}>
+                    <Form.Control
+                        type="text"
+                        placeholder="Search"
+                        className="d-none d-lg-block mr-sm-2"
+                        onChange={(e) => setQuery(e.target.value)}
+                    />
                 </Form>
 
                 <Nav className="ms-auto align-items-center">
-                    <Nav.Link className="d-flex flex-column align-items-center me-3" href="#home">
+                    <NavLink
+                        to={"/"}
+                        className="d-flex flex-column align-items-center me-3 text-decoration-none text-black p-2"
+                        href="#home"
+                    >
                         <HouseDoorFill className="fs-4" />
+
                         <span className="d-none d-lg-inline navbar-text-small">Home</span>
-                    </Nav.Link>
+                    </NavLink>
                     <Nav.Link className="d-flex flex-column align-items-center me-3" href="#home">
                         <PeopleFill className="fs-4" />
                         <span className="d-none d-lg-inline navbar-text-small">My Network</span>
                     </Nav.Link>
-                    <Nav.Link className="d-flex flex-column align-items-center me-3" href="#home">
+                    <NavLink
+                        to={"/jobs"}
+                        className="d-flex flex-column align-items-center me-3 text-decoration-none text-black p-2"
+                        href="#home"
+                    >
                         <BriefcaseFill className="fs-4" />
                         <span className="d-none d-lg-inline navbar-text-small">Jobs</span>
-                    </Nav.Link>
+                    </NavLink>
                     <Nav.Link className="d-flex flex-column align-items-center me-3" href="#home">
                         <ChatDotsFill className="fs-4" />
                         <span className="d-none d-lg-inline navbar-text-small">Messaging</span>
