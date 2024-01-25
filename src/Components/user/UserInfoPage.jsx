@@ -13,7 +13,7 @@ import {
 } from "react-bootstrap-icons";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { token } from "../token";
+import { token } from "../../token";
 import ModalComponent from "./ModalComponent";
 import SingleExperience from "./SingleExperience";
 

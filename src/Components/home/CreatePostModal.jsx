@@ -1,9 +1,9 @@
 import { Modal, Form, Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { token } from "../token";
+import { token } from "../../token";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { PUT_POST, deleteAndPutAction, getPostsAction } from "../Redux/actions";
+import { PUT_POST, deleteAndPutAction, getPostsAction } from "../../Redux/actions";
 
 const CreatePostModal = (props) => {
 	{

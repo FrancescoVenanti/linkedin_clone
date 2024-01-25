@@ -12,8 +12,8 @@ import {
 import CreatePostModal from "./CreatePostModal";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPostsAction } from "../Redux/actions";
-import { token } from "../token";
+import { getPostsAction } from "../../Redux/actions";
+import { token } from "../../token";
 
 const SinglePost = (props) => {
 	const dispatch = useDispatch();

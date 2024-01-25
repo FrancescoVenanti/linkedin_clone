@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { DELETE_POST, deleteAndPutAction, getPostsAction } from "../Redux/actions";
+import { DELETE_POST, deleteAndPutAction, getPostsAction } from "../../Redux/actions";
 import CreatePostModal from "./CreatePostModal";
-import { token } from "../token";
+import { token } from "../../token";
 import SinglePost from "./SinglePost";
 
 const AllTheCard = () => {

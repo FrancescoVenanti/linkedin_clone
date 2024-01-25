@@ -3,7 +3,7 @@ import { BuildingFill, PencilFill, Trash3Fill } from "react-bootstrap-icons";
 import ModalComponent from "./ModalComponent";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { token } from "../token";
+import { token } from "../../token";
 
 const SingleExperience = (props) => {
 	const user = useSelector((state) => state.me.meData);
