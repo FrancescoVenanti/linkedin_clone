@@ -35,7 +35,7 @@ const UserHero = () => {
 					<Col className="col-12 position-relative user-backgroud">
 						<div style={{ height: "201px" }}>
 							<img
-								className="position-absolute rounded-circle"
+								className="position-absolute rounded-circle object-fit-cover"
 								src={me.image} //imageUrl
 								id="UserImg"
 								onClick={() => {
