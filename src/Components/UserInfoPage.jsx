@@ -15,6 +15,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { token } from "../token";
 import ModalComponent from "./ModalComponent";
+import SingleExperience from "./SingleExperience";
 
 const UserInfoPage = () => {
 	const user = useSelector((state) => state.me.meData);
@@ -22,10 +23,6 @@ const UserInfoPage = () => {
 	const experienceEndpoint = `https://striveschool-api.herokuapp.com/api/profile/${user._id}/experiences`;
 
 	const [experiences, setExperiences] = useState([]);
-	const [showModal, setShowModal] = useState(false);
-	const handleClose = () => {
-		setShowModal(false);
-	};
 
 	const handleSetExperience = () => {
 		getExperiences();
@@ -45,25 +42,6 @@ const UserInfoPage = () => {
 				setExperiences(data);
 			} else {
 				throw new Error("failed to fetch");
-			}
-		} catch (err) {
-			console.log(err);
-		}
-	};
-
-	const deleteExperience = async (experienceId) => {
-		try {
-			let resp = await fetch(experienceEndpoint + `/${experienceId}`, {
-				method: "DELETE",
-				headers: {
-					Authorization: `bearer ${token}`,
-				},
-			});
-			if (resp.ok) {
-				console.log("DELETE request succesful");
-				getExperiences();
-			} else {
-				throw new Error("Failed to Delete");
 			}
 		} catch (err) {
 			console.log(err);
@@ -139,34 +117,11 @@ const UserInfoPage = () => {
 				{experiences.length > 0 &&
 					experiences.map((experience) => {
 						return (
-							<div key={experience._id} className="d-flex border-bottom mb-2">
-								<BuildingFill width={50} height={50} />
-								<div className="ms-2">
-									<p className="fw-bold m-0">{experience.company}</p>
-									<p>{experience.description}</p>
-									<p>
-										Start: {experience.startDate.slice(0, 7)}{" "}
-										{experience.endDate !== "2001-01-01T00:00:00.000Z" &&
-											" - end: " + experience.endDate.slice(0, 7)}
-									</p>
-								</div>
-								<div className="ms-auto">
-									<Button onClick={() => deleteExperience(experience._id)}>
-										<Trash3Fill />
-									</Button>
-									<Button onClick={() => setShowModal(true)}>
-										<PencilFill />
-									</Button>
-									{showModal && (
-										<ModalComponent
-											experience={experience}
-											show={showModal}
-											handleClose={handleClose}
-											getExperiences={getExperiences}
-										/>
-									)}
-								</div>
-							</div>
+							<SingleExperience
+								experience={experience}
+								key={experience._id}
+								getExperiences={getExperiences}
+							/>
 						);
 					})}
 			</UserInfoCards>
