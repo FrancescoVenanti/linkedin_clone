@@ -1,18 +1,18 @@
 import { Button, Form, Modal } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { putImgAction } from "../Redux/actions";
+import { getMeAction, putImgAction } from "../Redux/actions";
+import { useEffect, useState } from "react";
 
 const ModalImage = (props) => {
 	const userProfile = useSelector((state) => state.me.meData);
+	const maledettoId = userProfile._id;
+	console.log(userProfile._id);
 	const dispatch = useDispatch();
-	const handleFileChange = (e) => {
-		const file = e.target.files[0];
+	const [userImg, setUserImg] = useState({ image: "" });
 
-		if (file) {
-			// Dispatch an action to update the userProfile in the Redux store
-			dispatch(putImgAction({ ...userProfile, image: file }));
-		}
-	};
+	useEffect(() => {
+		console.log(userImg);
+	}, [userImg]);
 
 	return (
 		<Modal
@@ -28,7 +28,13 @@ const ModalImage = (props) => {
 				<Form>
 					<Form.Group>
 						<Form.Label>Choose a photo</Form.Label>
-						<Form.Control type="file" size="lg" onChange={handleFileChange} />
+						<Form.Control
+							type="file"
+							size="lg"
+							onChange={(e) => {
+								setUserImg(e.target.files[0]);
+							}}
+						/>
 					</Form.Group>
 				</Form>
 			</Modal.Body>
@@ -44,7 +50,12 @@ const ModalImage = (props) => {
 				<Button
 					variant="primary"
 					onClick={() => {
-						dispatch(putImgAction(userProfile));
+						dispatch(putImgAction(userImg, maledettoId));
+						setTimeout(() => {
+							dispatch(getMeAction("me"));
+							console.log("aaaaaaaaaaaaaaaaaaaaaaaaaa");
+						}, 5000);
+						props.setChangeImage(false);
 					}}
 				>
 					Upload photo
