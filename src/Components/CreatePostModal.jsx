@@ -7,7 +7,7 @@ import { PUT_POST, deleteAndPutAction, getPostsAction } from "../Redux/actions";
 
 const CreatePostModal = (props) => {
 	{
-		props.post && console.log(props.post._id);
+		props.post && console.log(props.post._id, props.setShow);
 	}
 	const actualUser = useSelector((state) => state.me.meData);
 	const [createdPost, setCreatedPost] = useState(props.post ? props.post : "");
@@ -99,7 +99,7 @@ const CreatePostModal = (props) => {
 				<Button
 					variant="secondary"
 					onClick={() => {
-						props.setShow(false);
+						props.setShow();
 					}}
 				>
 					Close
@@ -112,7 +112,7 @@ const CreatePostModal = (props) => {
 						} else {
 							createPost();
 						}
-						props.setShow(false);
+						props.setShow();
 					}}
 				>
 					Post
