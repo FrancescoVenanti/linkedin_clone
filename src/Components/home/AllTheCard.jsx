@@ -19,13 +19,11 @@ const AllTheCard = () => {
 	const uniqueUsersSet = new Set();
 
 	const allTheUsers = usersArray.filter((user) => {
-		// Check if the user's email is not already in the set
 		if (!uniqueUsersSet.has(user.email)) {
-			// Add the email to the set to mark it as seen
 			uniqueUsersSet.add(user.email);
-			return true; // Include the user in the filtered array
+			return true;
 		}
-		return false; // Exclude the user from the filtered array
+		return false;
 	});
 
 	console.log("Aaaaaaaaaaaaaaaaaaa", allTheUsers);

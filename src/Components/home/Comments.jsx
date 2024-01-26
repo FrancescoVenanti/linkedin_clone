@@ -33,7 +33,14 @@ const Comments = (props) => {
 					<span>Send</span>
 				</Button>
 			</div>
-			{showComment && <SingleComment />}
+			{showComment && (
+				<SingleComment
+					postId={props.postId}
+					allComments={props.allComments}
+					allTheUsers={props.allTheUsers}
+					getComments={props.getComments}
+				/>
+			)}
 		</>
 	);
 };

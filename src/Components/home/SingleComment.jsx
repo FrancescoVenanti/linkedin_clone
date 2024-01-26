@@ -68,12 +68,18 @@ const SingleComment = (props) => {
 			</div>
 			{props.allComments &&
 				props.allComments.map((comment) => {
-					console.log(comment);
-					const matchingUser = allTheUsers.find((user) => user.email === comment.author);
-					/* console.log(matchingUser); */
+					if (comment.elementId === props.postId) {
+						const matchingUser = allTheUsers.find((user) => {
+							console.log("Comparing:", comment.author, user.email);
+							if (comment.author === user.email) {
+								return comment.author === user.email;
+							} else {
+								return comment.author === user.username;
+							}
+						});
+						console.log(matchingUser);
 
-					return (
-						comment.elementId === props.postId && (
+						return (
 							<div key={comment._id} className="mt-3 d-flex align-items-start">
 								<img
 									src={
@@ -88,13 +94,13 @@ const SingleComment = (props) => {
 								/>
 								<div className="bg-comments px-3 py-2 rounded-3">
 									<p className="fw-bold m-0">
-										{/* {matchingUser ? matchingUser.fullName : "Nome Cognome"} */}nome
+										{matchingUser ? matchingUser.name + " " + matchingUser.surname : "Nome Cognome"}
 									</p>
 									<p className="m-0">{comment.comment}</p>
 								</div>
 							</div>
-						)
-					);
+						);
+					} else return null;
 				})}
 		</div>
 	);
