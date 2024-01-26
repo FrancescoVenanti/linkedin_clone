@@ -32,7 +32,7 @@ const SingleSingleComment = (props) => {
                 alt=""
             />
             <div className="bg-comments px-3 py-2 rounded-3 d-flex">
-                <div>
+                <div className="text-wrapping">
                     <p className="fw-bold m-0">
                         {matchingUser ? matchingUser.name + " " + matchingUser.surname : "Nome Cognome"}
                     </p>

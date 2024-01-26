@@ -6,3 +6,7 @@
     background-color: #337f93;
     transition: all 0.3s;
 }
+
+.text-wrapping {
+    word-break: break-all;
+}
