@@ -9,23 +9,23 @@ import Home from "./Components/home/Home";
 import JobPage from "./Components/jobs/JobPage";
 import SearchPage from "./Components/SearchPage";
 function App() {
-    return (
-        <div className="bg-linkedin">
-            <BrowserRouter>
-                <NavBar />
-                <Container className="px-0">
-                    <Routes>
-                        <Route path={"/"} element={<Home />} />
-                        <Route path={"/:me"} element={<ProfilePage />} />
-                        <Route path={"/jobs"} element={<JobPage />} />
-                        <Route path={"/search"} element={<SearchPage />} />
-                    </Routes>
+	return (
+		<div className="bg-linkedin overflow-x-hidden">
+			<BrowserRouter>
+				<NavBar />
+				<Container className="px-0">
+					<Routes>
+						<Route path={"/"} element={<Home />} />
+						<Route path={"/:me"} element={<ProfilePage />} />
+						<Route path={"/jobs"} element={<JobPage />} />
+						<Route path={"/search"} element={<SearchPage />} />
+					</Routes>
 
-                    <Footer />
-                </Container>
-            </BrowserRouter>
-        </div>
-    );
+					<Footer />
+				</Container>
+			</BrowserRouter>
+		</div>
+	);
 }
 
 export default App;
