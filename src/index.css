@@ -1,33 +1,37 @@
 .navbar-text-small {
-    font-size: 0.9rem;
+	font-size: 0.9rem;
 }
 #basic-nav-dropdown {
-    padding: 0;
+	padding: 0;
 }
 .user-backgroud {
-    background-image: url("https://images.squarespace-cdn.com/content/v1/5778f11403596ed4b5a7a0db/1467630699252-ZUUH8PMXIRNGW99VPCP0/bg-placeholder-pattern.jpg?format=2500w");
+	background-image: url("https://images.squarespace-cdn.com/content/v1/5778f11403596ed4b5a7a0db/1467630699252-ZUUH8PMXIRNGW99VPCP0/bg-placeholder-pattern.jpg?format=2500w");
 }
 #UserImg {
-    width: 150px;
-    position: absolute;
-    bottom: 0;
-    transform: translateY(30%);
-    margin-inline-start: 12px;
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	bottom: 0;
+	transform: translateY(30%);
+	margin-inline-start: 12px;
 }
 #UserImageHome {
-    position: relative;
-    bottom: 0;
-    transform: translate(-50%, 30%);
-    margin-inline-start: 50%;
+	position: relative;
+	bottom: 0;
+	transform: translate(-50%, 30%);
+	margin-inline-start: 50%;
 }
 .footer-fs {
-    font-size: 12px;
+	font-size: 12px;
 }
 .bg-linkedin {
-    background-color: #f4f2ee;
+	background-color: #f4f2ee;
 }
 
 .hover-gray:hover {
-    background-color: black;
-    transition: all 0.3s;
+	background-color: black;
+	transition: all 0.3s;
+}
+.bg-comments {
+	background-color: #f2f2f2;
 }

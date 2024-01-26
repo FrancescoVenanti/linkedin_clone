@@ -4,6 +4,7 @@ import { DELETE_POST, deleteAndPutAction, getPostsAction } from "../../Redux/act
 import CreatePostModal from "./CreatePostModal";
 import { token } from "../../token";
 import SinglePost from "./SinglePost";
+import { tokenComment } from "../../tokenComments";
 
 const AllTheCard = () => {
 	const dispatch = useDispatch();
@@ -11,6 +12,47 @@ const AllTheCard = () => {
 	const actualUser = useSelector((state) => state.me.meData);
 	useEffect(() => {
 		dispatch(getPostsAction());
+	}, []);
+
+	const usersArray = posts.map((post) => post.user);
+
+	const uniqueUsersSet = new Set();
+
+	const allTheUsers = usersArray.filter((user) => {
+		if (!uniqueUsersSet.has(user.email)) {
+			uniqueUsersSet.add(user.email);
+			return true;
+		}
+		return false;
+	});
+
+	console.log("Aaaaaaaaaaaaaaaaaaa", allTheUsers);
+
+	const endpoint = "https://striveschool-api.herokuapp.com/api/comments/";
+	const [allComments, setAllComments] = useState(null);
+
+	const getComments = async () => {
+		try {
+			let resp = await fetch(endpoint, {
+				method: "GET",
+				headers: {
+					Authorization: `bearer ${tokenComment}`,
+				},
+			});
+			if (resp.ok) {
+				let data = await resp.json();
+				setAllComments(data);
+				console.log("data:", data);
+			} else {
+				throw new Error("Failed to get data");
+			}
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	useEffect(() => {
+		getComments();
 	}, []);
 
 	console.log(actualUser.username);
@@ -31,7 +73,15 @@ const AllTheCard = () => {
 					.slice()
 					.reverse()
 					.map((post, index) => {
-						return <SinglePost key={post._id} post={post} />;
+						return (
+							<SinglePost
+								key={post._id}
+								post={post}
+								allComments={allComments}
+								allTheUsers={allTheUsers}
+								getComments={getComments}
+							/>
+						);
 					})}
 		</>
 	);
