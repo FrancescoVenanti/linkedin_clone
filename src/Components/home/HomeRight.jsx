@@ -38,7 +38,7 @@ const HomeRight = () => {
                 />
                 <div>
                     <p className="mb-0 fw-bold">Linkedin</p>
-                    <p className="mb-0 text-secondary">Company • (Hospitality)</p>
+                    <p className="mb-0 text-secondary">Company</p>
                     <Button
                         className="d-flex align-items-center hover-gray text-secodary border border-2 border-secondary rounded-pill my-1"
                         variant="none"
