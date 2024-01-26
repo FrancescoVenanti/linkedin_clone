@@ -14,6 +14,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPostsAction } from "../../Redux/actions";
 import { token } from "../../token";
+import Comments from "./Comments";
+import { tokenComment } from "../../tokenComments";
 
 const SinglePost = (props) => {
 	const dispatch = useDispatch();
@@ -133,24 +135,12 @@ const SinglePost = (props) => {
 					</div>
 				)}
 			</div>
-			<div className="d-flex justify-content-center pt-2">
-				<Button variant="none" className="hover-gray d-flex align-items-center">
-					<HandThumbsUp className="me-1" />
-					<span>Like</span>
-				</Button>
-				<Button variant="none" className="hover-gray d-flex align-items-center">
-					<ChatText className="me-1" />
-					<span>Comment</span>
-				</Button>
-				<Button variant="none" className="hover-gray d-flex align-items-center">
-					<Repeat className="me-1" />
-					<span>Repost</span>
-				</Button>
-				<Button variant="none" className="hover-gray d-flex align-items-center">
-					<SendFill className="me-1" />
-					<span>Send</span>
-				</Button>
-			</div>
+			<Comments
+				postId={props.post._id}
+				allComments={props.allComments}
+				allTheUsers={props.allTheUsers}
+				getComments={props.getComments}
+			/>
 		</div>
 	);
 };

@@ -1,0 +1,2 @@
+export const tokenComment =
+	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTcxYzc1MjBkOGEyMDAwMThhNDhhMzQiLCJpYXQiOjE3MDYyNTY0NjEsImV4cCI6MTcwNzQ2NjA2MX0.FsEoksTLwfhk31aW44FcLM33agrAS_EP_qCKnR7p9gU";
