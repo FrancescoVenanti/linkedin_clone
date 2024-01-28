@@ -1,4 +1,5 @@
 export const token =
+<<<<<<< Updated upstream
 	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMjJjZjYwMGJlMTAwMTgzYTg2N2MiLCJpYXQiOjE3MDU5MTA5OTEsImV4cCI6MTcwNzEyMDU5MX0.75Nw3-qhMKdubNHYCJISKNrN6KoN3RzbgnBBl9gJgwY";
 
 /* export const token =
@@ -7,3 +8,6 @@ export const token =
 // export const token =
 //     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIyMzUzNTkxM2Y2NTAwMThkMDk2NGEiLCJpYXQiOjE3MDYxNzc4NDUsImV4cCI6MTcwNzM4NzQ0NX0.9mkNzpT188p7d0iXHjdH4KCoer5nUfDtrmSdBrteB60"
 //     "mattia"
+=======
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMjJjODYwMGJlMTAwMTgzYTg2N2IiLCJpYXQiOjE3MDU5MTA5ODQsImV4cCI6MTcwNzEyMDU4NH0.IRbfF_92hEUZ0SpfG6DigJYkW6CNIds-paSJpaB0aPA";
+>>>>>>> Stashed changes
